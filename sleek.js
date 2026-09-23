@@ -3,25 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://pay.slickymedia.com">
-    <meta property="og:url" content="https://pay.slickymedia.com">
-    <meta property="og:title" content="Slicky Media | Secure Payment">
-    <meta property="og:description" content="Securely pay Slicky Media for invoices, consultations, or custom services using your credit or debit card. Powered by Stripe.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://pay.slickymedia.com/assets/images/slickymedia-payment.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Slicky Media">
-    <meta name="description" content="Secure payment portal for Slicky Media. Pay invoices, consultations, or custom services using credit/debit card. Powered by Stripe.">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Slicky Media | Secure Payment">
-    <meta name="twitter:description" content="Securely pay Slicky Media for invoices, consultations, or custom services using your credit or debit card. Powered by Stripe.">
-    <meta name="twitter:image" content="https://pay.slickymedia.com/assets/images/slickymedia-payment.png">
-    <meta name="twitter:site" content="@SlickyMedia">
-    <link rel="icon" type="image/png" href="https://pay.slickymedia.com/assets/images/slickymedia_logo-white.png">
-    <link rel="apple-touch-icon" href="https://pay.slickymedia.com/assets/images/slickymedia_logo-white.png">
-    <script src="https://js.stripe.com/v3/"></script>
-    <title>Slicky Media | Secure Payment</title>
+    <title>Minimalist USD Payment Portal</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -53,24 +35,6 @@
         }
     </script>
     <style>
-         .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #ffffff;
-            font-family: 'Open Sauce One', var(--font-family);
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: -0.3px;
-        }
-
-        .brand-logo img {
-            height: 36px;
-            width: auto;
-            display: block;
-            object-fit: contain;
-        }
         /* Custom smooth scroll and minimalist scrollbars */
         ::-webkit-scrollbar {
             width: 6px;
@@ -111,16 +75,28 @@
         <header class="border-b border-neutral-800/80 backdrop-blur-md sticky top-0 z-30 bg-neutral-950/80">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
                 <!-- Brand / Logo -->
-                <div class="flex items-center brand-logo">
-                     <img src="https://services.slickymedia.com/assets/images/slickymedia_logo-white.png" alt="Slicky Media Icon">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/20 font-bold text-lg">
+                        <i class="fa-solid fa-bolt text-sm"></i>
+                    </div>
                     <div>
-                        <span class="font-semibold text-neutral-100 tracking-tight block leading-none">Slicky Media</span>
+                        <span class="font-semibold text-neutral-100 tracking-tight block leading-none">Apex Pay</span>
                         <span class="text-[10px] text-neutral-500 font-mono">SECURE PAYMENT PORTAL</span>
                     </div>
                 </div>
 
                 <!-- Header Actions -->
-           
+                <div class="flex items-center space-x-3">
+                    <button id="configBtn" onclick="toggleConfigModal()" class="text-xs text-neutral-400 hover:text-white px-3 py-1.5 rounded-lg border border-neutral-800 hover:border-neutral-700 bg-neutral-900 transition flex items-center gap-2">
+                        <i class="fa-solid fa-code text-indigo-400"></i>
+                        <span class="hidden sm:inline">Stripe Setup Guide</span>
+                    </button>
+                    <div class="h-4 w-px bg-neutral-800"></div>
+                    <div class="flex items-center text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full font-mono">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-2 animate-pulse"></span>
+                        USD $ LIVE
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -130,7 +106,9 @@
             <div id="paymentFormContainer" class="max-w-2xl mx-auto w-full">
                 
                 <div class="text-center mb-8">
-                   
+                    <span class="inline-block px-3 py-1 rounded-full text-xs font-mono font-medium text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 mb-3">
+                        Direct Client Checkout
+                    </span>
                     <h1 class="text-3xl sm:text-4xl font-light text-white tracking-tight">
                         Enter payment amount
                     </h1>
@@ -496,7 +474,7 @@ app.post('/create-payment-intent', async (req, res) => {
 
         <!-- Footer -->
         <footer class="border-t border-neutral-900 py-6 text-center text-xs text-neutral-600">
-            <p>© 2026 Slicky Media. Powered by Stripe Payments Network. Secured with 256-Bit SSL.</p>
+            <p>© 2026 Apex Payments. Powered by Stripe Payments Network. Secured with 256-Bit SSL.</p>
         </footer>
 
     </div>
